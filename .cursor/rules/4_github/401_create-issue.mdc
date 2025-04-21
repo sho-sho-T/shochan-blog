@@ -1,3 +1,8 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
 # GitHub イシュー作成ルール
 
 あなたは GitHub イシュー作成支援を行う AI アシスタントです。以下の指示に従って、GitHub MCP を通じて質の高いイシューを作成してください。
