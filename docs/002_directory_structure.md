@@ -14,100 +14,70 @@
 │   │   │   │   │   └── page.tsx
 │   │   │   │   ├── categories/             # カテゴリページ
 │   │   │   │   │   ├── page.tsx
-│   │   │   │   │   └── [category]/
+│   │   │   │   │   └── [category]/         # カテゴリ別記事一覧
 │   │   │   │   │       └── page.tsx
 │   │   │   │   └── tags/                   # タグページ
 │   │   │   │       ├── page.tsx
-│   │   │   │       └── [tag]/
+│   │   │   │       └── [tag]/              # タグ別記事一覧
 │   │   │   │           └── page.tsx
 │   │   │   └── layout.tsx                  # 公開ページレイアウト
-│   │   ├── (admin)/                        # 管理者ルートグループ
-│   │   │   ├── login/                      # ログインページ
-│   │   │   │   └── page.tsx
-│   │   │   ├── dashboard/                  # ダッシュボード
-│   │   │   │   └── page.tsx
-│   │   │   ├── posts/                      # 記事管理
-│   │   │   │   ├── page.tsx
-│   │   │   │   ├── new/                    # 新規記事作成
-│   │   │   │   │   └── page.tsx
-│   │   │   │   └── [id]/                   # 記事編集
-│   │   │   │       └── page.tsx
-│   │   │   └── layout.tsx                  # 管理者ページレイアウト
-│   │   ├── api/                            # APIルート
-│   │   │   └── [...]/
 │   │   ├── layout.tsx                      # ルートレイアウト
 │   │   └── not-found.tsx                   # 404ページ
-│   ├── features/                           # 機能モジュール
+│   ├── features/                           # 機能別モジュール
 │   │   ├── post/                           # 記事関連機能
-│   │   │   ├── _components/                # コンポーネント
-│   │   │   │   ├── post-list/              # 記事一覧表示
-│   │   │   │   │   ├── index.tsx
-│   │   │   │   │   ├── container.tsx
-│   │   │   │   │   └── presentation.tsx
-│   │   │   │   ├── post-detail/            # 記事詳細表示
-│   │   │   │   │   ├── index.tsx
-│   │   │   │   │   ├── container.tsx
-│   │   │   │   │   └── presentation.tsx
-│   │   │   │   └── post-editor/            # 記事エディタ
-│   │   │   │       ├── index.tsx
-│   │   │   │       ├── container.tsx
-│   │   │   │       └── presentation.tsx
-│   │   │   ├── _repositories/              # データアクセス層
-│   │   │   │   └── post-repository.ts      # 記事データ操作
-│   │   │   ├── _services/                  # サービス層
-│   │   │   │   └── post-service.ts         # 記事ビジネスロジック
-│   │   │   ├── _actions/                   # Server Actions
-│   │   │   │   └── post-actions.ts         # 記事操作アクション
-│   │   │   └── _types/                     # 型定義
-│   │   │       └── post.ts                 # 記事関連の型
+│   │   │   ├── _components/                # 記事表示関連コンポーネント (例: PostList, PostCard, PostDetail)
+│   │   │   └── _types/                     # 記事関連の型定義
 │   │   ├── category/                       # カテゴリ関連機能
-│   │   │   ├── _components/
-│   │   │   ├── _repositories/
-│   │   │   ├── _services/
-│   │   │   ├── _actions/
-│   │   │   └── _types/
+│   │   │   ├── _components/                # カテゴリ表示関連コンポーネント (例: CategoryList, CategoryLink, CategoryIcon)
+│   │   │   └── _types/                     # カテゴリ関連の型定義
 │   │   ├── tag/                            # タグ関連機能
-│   │   │   ├── _components/
-│   │   │   ├── _repositories/
-│   │   │   ├── _services/
-│   │   │   ├── _actions/
-│   │   │   └── _types/
-│   │   └── auth/                           # 認証関連機能
-│   │       ├── _components/
-│   │       ├── _repositories/
-│   │       ├── _services/
-│   │       ├── _actions/
-│   │       └── _types/
+│   │   │   ├── _components/                # タグ表示関連コンポーネント (例: TagList, TagLink)
+│   │   │   └── _types/                     # タグ関連の型定義
+│   │   └── search/                         # 検索機能
+│   │       ├── _components/                # 検索UIコンポーネント (例: SearchBar, SearchResultList)
+│   │       └── _types/                     # 検索関連の型定義
 │   ├── components/                         # 共通UIコンポーネント
-│   │   ├── ui/                             # 基本UIコンポーネント
+│   │   ├── ui/                             # 基本UIコンポーネント (shadcn/uiベース + カスタム)
 │   │   │   ├── button.tsx
 │   │   │   └── ...
-│   │   ├── layout/                         # レイアウトコンポーネント
+│   │   ├── layout/                         # サイト共通レイアウトコンポーネント
 │   │   │   ├── header.tsx
 │   │   │   ├── footer.tsx
 │   │   │   └── ...
-│   │   └── mdx/                            # MDXカスタムコンポーネント
-│   │       ├── code-block.tsx
+│   │   └── mdx/                            # Markdown表示用カスタムコンポーネント
+│   │       ├── code-block.tsx              # コードブロック (シンタックスハイライト含む)
+│   │       ├── heading-link.tsx            # 見出しリンク
 │   │       └── ...
-│   ├── lib/                                # 共通ユーティリティ
-│   │   ├── database/                       # データベース接続
-│   │   │   └── prisma.ts
-│   │   ├── mdx/                            # MDX処理
-│   │   │   └── mdx-utils.ts
-│   │   └── utils/                          # その他ユーティリティ
-│   │       ├── format.ts
+│   ├── lib/                                # 共通ユーティリティ・ロジック
+│   │   ├── content/                        # コンテンツ取得・処理 (ビルド時)
+│   │   │   ├── posts.ts                    # 記事データの取得・パース
+│   │   │   ├── categories.ts               # カテゴリデータの集約
+│   │   │   ├── tags.ts                     # タグデータの集約
+│   │   │   └── types.ts                    # コンテンツ関連の型
+│   │   ├── mdx/                            # Markdownレンダリング関連ユーティリティ
+│   │   │   └── render.ts                   # react-markdownの設定等
+│   │   ├── search/                         # 検索インデックス生成・処理 (ビルド時)
+│   │   │   └── indexer.ts                  # flexsearchインデックス生成ロジック
+│   │   ├── icons/                          # アイコン関連
+│   │   │   └── icon-map.ts                 # カテゴリ/タグとアイコンのマッピング
+│   │   └── utils/                          # その他共通ユーティリティ
+│   │       ├── format.ts                   # 日付フォーマット等
 │   │       └── ...
-│   ├── content/                            # コンテンツファイル
-│   │   └── posts/                          # ブログ記事
-│   │       ├── category1/
-│   │       └── category2/
+│   ├── content/                            # Markdownコンテンツソース
+│   │   └── posts/                          # ブログ記事ファイル (.md/.mdx)
+│   │       ├── example-post-1.md
+│   │       └── category-subdirectory/
+│   │           └── example-post-2.mdx
 │   ├── types/                              # グローバル型定義
-│   │   ├── global.d.ts
-│   │   └── ...
-│   └── mdx-components.tsx                  # MDXグローバルコンポーネント
-├── public/                                 # 静的ファイル
-├── prisma/                                 # Prisma関連
-│   └── schema.prisma                       # データベーススキーマ
+│   │   └── index.d.ts
+│   └── mdx-components.tsx                  # react-markdown用グローバルコンポーネント設定
+├── public/
+│   ├── images/                             # 画像ファイル
+│   │   └── posts/                          # 記事関連画像
+│   ├── search-index.json                   # ビルド時に生成される検索インデックス
+│   └── ...                                 # favicon等
+├── scripts/                                # ビルド用スクリプト等
+│   └── build-search-index.js               # 検索インデックス生成スクリプト
 ├── next.config.mjs                         # Next.js設定
-└── ...                                     # その他設定ファイル
+└── ...                                     # その他設定ファイル (tsconfig.json, package.json, etc.)
 ```
