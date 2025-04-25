@@ -17,16 +17,16 @@ Git ベースのコンテンツ管理を行う静的ブログサイトの構築�
 1.  **[T1-1] Next.js プロジェクト初期化と Biome 設定**
     - 概要: `create-next-app` を使用してプロジェクトを作成し、フォーマッター/リンターとして Biome を導入・設定。
     - 完了条件:
-        - [ ] Next.js プロジェクトが作成されている。
-        - [ ] TypeScript, Tailwind CSS, ESLint が設定されている。
-        - [ ] Biome (`@biomejs/biome`) が dev dependency としてインストールされている。
-        - [ ] `biome.json` が設定されている (フォーマット、リント ルール)。
-        - [ ] `package.json` に Biome のフォーマット・リント用スクリプトが追加されている (例: `format`, `lint:biome`)。
-        - [ ] `npm run dev` で開発サーバーが起動し、初期ページが表示される。
+        - [x] Next.js プロジェクトが作成されている。
+        - [x] TypeScript, Tailwind CSS, ESLint が設定されている。
+        - [x] Biome (`@biomejs/biome`) が dev dependency としてインストールされている。
+        - [x] `biome.json` が設定されている (フォーマット、リント ルール)。
+        - [x] `package.json` に Biome のフォーマット・リント用スクリプトが追加されている (例: `format`, `lint:biome`)。
+        - [x] `npm run dev` で開発サーバーが起動し、初期ページが表示される。
     - 動作確認:
-        - [ ] `npm run lint:biome` (または設定したコマンド) でエラーが出ないこと。
-        - [ ] `npm run format` (または設定したコマンド) でコードがフォーマットされること。
-        - [ ] `npm run build` でビルドが成功すること。
+        - [x] `npm run lint:biome` (または設定したコマンド) でエラーが出ないこと。
+        - [x] `npm run format` (または設定したコマンド) でコードがフォーマットされること。
+        - [x] `npm run build` でビルドが成功すること。
 
 2.  **[T1-2] shadcn-ui 導入と設定**
     - 概要: shadcn-ui CLI を使用して初期化し、基本的な UI コンポーネント (Button など) を導入。
