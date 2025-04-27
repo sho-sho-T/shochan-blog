@@ -1,10 +1,10 @@
 このドキュメントは本プロジェクトのディレクトリ構造について記載しています。
-**Next.jsの`app`ルーターを利用しており、`src/` ディレクトリをアプリケーションのルートとしています。**
+**Next.jsの`app`ルーターを利用しており、`src/` ディレクトリを使用せず、プロジェクトルート直下に各ディレクトリを配置します。**
 
 # ディレクトリ構造
 
 ```
-/ (src ディレクトリ)
+/
 ├── app/                                # Next.jsのアプリルーター
 │   ├── (routes)/                       # 公開ルートグループ
 │   │   ├── page.tsx                    # トップページ
@@ -70,5 +70,14 @@
 │           └── example-post-2.mdx
 ├── types/                              # グローバル型定義
 │   └── index.d.ts
-└── mdx-components.tsx                  # react-markdown用グローバルコンポーネント設定
+├── mdx-components.tsx                  # react-markdown用グローバルコンポーネント設定
+├── public/                             # 公開アセット
+│   ├── images/                         # 画像ファイル
+│   │   └── posts/                      # 記事関連画像
+│   ├── search-index.json               # ビルド時に生成される検索インデックス
+│   └── ...                             # favicon等
+├── scripts/                            # ビルド用スクリプト等
+│   └── build-search-index.js           # 検索インデックス生成スクリプト
+├── next.config.mjs                     # Next.js設定
+└── ...                                 # その他設定ファイル (tsconfig.json, package.json, etc.)
 ```
