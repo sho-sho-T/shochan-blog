@@ -3,10 +3,10 @@ import Link from "next/link";
 export function Footer() {
   return (
     <footer className="border-t bg-background">
-      <div className="container py-8">
-        <div className="flex flex-col items-center justify-center">
-          <div className="w-full flex justify-center mb-4">
-            <nav className="flex gap-12 justify-center">
+      <div className="py-8">
+        <div className="grid place-items-center">
+          <div className="flex justify-center mb-4">
+            <nav className="inline-flex gap-12 justify-center">
               <Link href="/profile" className="text-sm text-muted-foreground hover:text-primary transition-colors">
                 プロフィール
               </Link>

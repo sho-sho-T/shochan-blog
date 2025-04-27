@@ -7,34 +7,32 @@ export const metadata: Metadata = {
 
 export default function ProfilePage() {
   return (
-    <div className="flex justify-center items-center">
-      <div className="container py-12">
-        <div className="max-w-3xl mx-auto">
-          <div className="flex flex-col items-center mb-8">
-            <div className="w-24 h-24 mb-4 bg-primary-foreground rounded-full flex items-center justify-center">
-              <span className="text-4xl">🌵</span>
-            </div>
-            <h1 className="text-3xl font-bold mb-2 text-center">Shochanのプロフィール</h1>
-            <time className="text-sm text-muted-foreground" dateTime="2024-04-21">
-              更新日: 2024年4月21日
-            </time>
+    <div className="w-full flex justify-center">
+      <div className="max-w-3xl w-full py-12">
+        <div className="flex flex-col items-center mb-8">
+          <div className="w-24 h-24 mb-4 bg-primary-foreground rounded-full flex items-center justify-center">
+            <span className="text-4xl">🌵</span>
           </div>
+          <h1 className="text-3xl font-bold mb-2 text-center">Shochanのプロフィール</h1>
+          <time className="text-sm text-muted-foreground" dateTime="2024-04-21">
+            更新日: 2024年4月21日
+          </time>
+        </div>
 
-          <div className="space-y-12">
-            <section className="flex flex-col items-center">
-              <h2 className="text-xl font-semibold mb-4 border-b pb-2 text-center w-full">基本情報</h2>
-              <p className="text-center text-muted-foreground">
-                ここにプロフィール情報が表示されます。
-              </p>
-            </section>
+        <div className="space-y-12">
+          <section className="flex flex-col items-center">
+            <h2 className="text-xl font-semibold mb-4 border-b pb-2 text-center w-full">基本情報</h2>
+            <p className="text-center text-muted-foreground">
+              ここにプロフィール情報が表示されます。
+            </p>
+          </section>
 
-            <section className="flex flex-col items-center">
-              <h2 className="text-xl font-semibold mb-4 border-b pb-2 text-center w-full">運営しているサイト・サービス</h2>
-              <p className="text-center text-muted-foreground">
-                運営しているサイトやサービスの情報がここに表示されます。
-              </p>
-            </section>
-          </div>
+          <section className="flex flex-col items-center">
+            <h2 className="text-xl font-semibold mb-4 border-b pb-2 text-center w-full">運営しているサイト・サービス</h2>
+            <p className="text-center text-muted-foreground">
+              運営しているサイトやサービスの情報がここに表示されます。
+            </p>
+          </section>
         </div>
       </div>
     </div>
