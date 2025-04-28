@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import { getAllPosts } from '@/lib/content/posts';
 import { PostCard } from '@/features/post/_components/PostCard';
 import type { Metadata } from "next";
