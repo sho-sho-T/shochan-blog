@@ -71,10 +71,10 @@ Git ベースのコンテンツ管理を行う静的ブログサイトの構築�
 6.  **[T2-2] Markdown レンダリング設定 (`react-markdown`)**
     - 概要: `react-markdown` と関連プラグイン (`remark-gfm`, `rehype-highlight`, `rehype-autolink-headings`, `rehype-slug`) を導入・設定。MDX グローバルコンポーネント (`/mdx-components.tsx`) を設定。
     - 完了条件:
-        - [ ] 必要なライブラリがインストールされている。
-        - [ ] `react-markdown` を使用するラッパーコンポーネント (`/components/mdx/MarkdownRenderer.tsx` 等) が作成されている。
-        - [ ] 各プラグインが適用され、GFM、シンタックスハイライト、見出しリンクが機能する設定になっている。
-        - [ ] `mdx-components.tsx` で基本的な HTML タグのカスタムスタイル（任意）やカスタムコンポーネントが設定されている。
+        - [x] 必要なライブラリがインストールされている。
+        - [x] `react-markdown` を使用するラッパーコンポーネント (`/components/mdx/MarkdownRenderer.tsx` 等) が作成されている。
+        - [x] 各プラグインが適用され、GFM、シンタックスハイライト、見出しリンクが機能する設定になっている。
+        - [x] `mdx-components.tsx` で基本的な HTML タグのカスタムスタイル（任意）やカスタムコンポーネントが設定されている。
     - 動作確認:
         - [ ] `npm run test:components` でユニットテストが通ること (該当する場合)。
         - [ ] Storybook で様々な Markdown 要素（コードブロック、テーブル、リンク）が正しくレンダリングされることを確認。
