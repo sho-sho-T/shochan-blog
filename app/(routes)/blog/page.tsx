@@ -1,3 +1,6 @@
+import Link from 'next/link';
+import { getAllPosts } from '@/lib/content/posts';
+import { PostCard } from '@/features/post/_components/PostCard';
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -5,15 +8,23 @@ export const metadata: Metadata = {
   description: "技術ブログの記事一覧",
 };
 
-export default function BlogIndexPage() {
+export default async function BlogPage() {
+  // 公開記事のみを取得
+  const posts = await getAllPosts();
+
   return (
-    <div className="container py-12">
-      <h1 className="text-3xl font-bold mb-8 text-center">ブログ記事一覧</h1>
-      <div className="max-w-3xl mx-auto">
-        <p className="text-center text-muted-foreground mb-12">
-          現在記事を準備中です。もう少々お待ちください。
-        </p>
+    <main className="container mx-auto px-4 py-8">
+      <h1 className="text-3xl font-bold mb-8">記事一覧</h1>
+      
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {posts.map((post) => (
+          <PostCard key={post.slug} post={post} />
+        ))}
       </div>
-    </div>
+      
+      {posts.length === 0 && (
+        <p className="text-center text-gray-500 my-12">記事がありません</p>
+      )}
+    </main>
   );
 } 
