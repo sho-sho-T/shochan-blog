@@ -106,13 +106,12 @@ describe('Content Utility Functions', () => {
   describe('getAllPosts', () => {
     // getAllPosts はデフォルトの POSTS_DIR を使うので変更なし
     it('should return only published posts from the actual content directory (excluding _test)', async () => {
+      // 注意: このテストは実際の content/posts ディレクトリの状態に依存します。
+      // CI環境など、ディレクトリが空の状態で実行されることを想定する場合は調整が必要です。
       const posts = await getAllPosts();
-      // このテストは実際の content/posts ディレクトリに依存する
-      // テスト実行前に content/posts が空であることを確認するか、
-      // fs.readdir をモックする必要がある。
-      // ここでは例として、実際のディレクトリが空と仮定して 0 件であることを期待する。
-      // (もし実際の記事があれば、それらが返るはず)
-      expect(posts.length).toBe(0); // Assuming actual posts dir is empty
+      // 実際の content/posts に 'dummy-post-1.md' (published) が存在することを期待
+      expect(posts.length).toBeGreaterThanOrEqual(1);
+      expect(posts.some((p: Post) => p.slug === 'dummy-post-1')).toBe(true);
       expect(posts.some((p: Post) => p.status === 'draft')).toBe(false);
     });
 
