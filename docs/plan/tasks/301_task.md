@@ -58,15 +58,15 @@ Git ベースのコンテンツ管理を行う静的ブログサイトの構築�
 5.  **[T2-1] コンテンツ取得ユーティリティ実装 (`/lib/content/posts.ts`)**
     - 概要: `/content/posts` ディレクトリ内の Markdown ファイルを読み込み、`gray-matter` で Front Matter と本文をパースする関数を実装。
     - 完了条件:
-        - [ ] 指定ディレクトリの `.md`/`.mdx` ファイルを再帰的に読み込む関数 (`getAllPosts`) が実装されている。
-        - [ ] Front Matter (title, publishedAt, status, category, tags など) と本文 (`content`) を含むオブジェクトの配列を返す。
-        - [ ] 公開日 (`publishedAt`) で降順ソートする機能を含む。
-        - [ ] 下書き (`status: 'draft'`) を除外する機能を含む。
-        - [ ] 個別記事取得用の関数 (`getPostBySlug`) も実装されている (slug はファイル名から生成)。
-        - [ ] Front Matter の型定義 (`/lib/content/types.ts` または `/features/post/_types/post.ts`) が作成されている。
+        - [x] 指定ディレクトリの `.md`/`.mdx` ファイルを再帰的に読み込む関数 (`getAllPosts`) が実装されている。
+        - [x] Front Matter (title, publishedAt, status, category, tags など) と本文 (`content`) を含むオブジェクトの配列を返す。
+        - [x] 公開日 (`publishedAt`) で降順ソートする機能を含む。
+        - [x] 下書き (`status: 'draft'`) を除外する機能を含む。
+        - [x] 個別記事取得用の関数 (`getPostBySlug`) も実装されている (slug はファイル名から生成)。
+        - [x] Front Matter の型定義 (`/lib/content/types.ts` または `/features/post/_types/post.ts`) が作成されている。
     - 動作確認:
-        - [ ] `npm run test:lib` でユニットテストが通ること。
-        - [ ] テスト用に配置したダミー Markdown ファイルが正しくパースされることを確認。
+        - [x] `npm run test` でユニットテストが通ること。 (Script name is 'test')
+        - [x] テスト用に配置したダミー Markdown ファイルが正しくパースされることを確認。
 
 6.  **[T2-2] Markdown レンダリング設定 (`react-markdown`)**
     - 概要: `react-markdown` と関連プラグイン (`remark-gfm`, `rehype-highlight`, `rehype-autolink-headings`, `rehype-slug`) を導入・設定。MDX グローバルコンポーネント (`/mdx-components.tsx`) を設定。
