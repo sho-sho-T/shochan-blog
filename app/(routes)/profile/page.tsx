@@ -22,7 +22,7 @@ export default function ProfilePage() {
           </div>
           <h1 className="text-3xl font-bold mb-2 text-center">Shochanのプロフィール</h1>
           <time className="text-sm text-muted-foreground" dateTime="2024-04-21">
-            更新日: 2024年4月21日
+            更新日: 2025年5月1日
           </time>
         </div>
 
@@ -31,13 +31,6 @@ export default function ProfilePage() {
             <h2 className="text-xl font-semibold mb-4 border-b pb-2 text-center w-full">基本情報</h2>
             <p className="text-center text-muted-foreground">
               ここにプロフィール情報が表示されます。
-            </p>
-          </section>
-
-          <section className="flex flex-col items-center">
-            <h2 className="text-xl font-semibold mb-4 border-b pb-2 text-center w-full">運営しているサイト・サービス</h2>
-            <p className="text-center text-muted-foreground">
-              運営しているサイトやサービスの情報がここに表示されます。
             </p>
           </section>
         </div>
