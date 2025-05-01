@@ -21,7 +21,7 @@ export default function ProfilePage() {
             />
           </div>
           <h1 className="text-3xl font-bold mb-2 text-center">Shochanのプロフィール</h1>
-          <time className="text-sm text-muted-foreground" dateTime="2024-04-21">
+          <time className="text-sm text-muted-foreground" dateTime="2025-05-01">
             更新日: 2025年5月1日
           </time>
         </div>
