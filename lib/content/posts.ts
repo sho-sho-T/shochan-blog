@@ -41,10 +41,14 @@ export async function getPostBySlug(slug: string, baseDir: string = POSTS_DIR): 
       fileContent = await fs.readFile(potentialPath, 'utf-8');
       filePath = potentialPath;
       break; // ファイルが見つかったらループを抜ける
-    } catch (error: any) {
-      // ファイルが存在しない場合は次の拡張子を試す
-      if (error.code !== 'ENOENT') {
-        throw error; // 読み取りエラーなど、他のエラーは再スロー
+    } catch (error: unknown) {
+      if (typeof error === 'object' && error !== null && 'code' in error) {
+        const err = error as { code: unknown };
+        if (err.code !== 'ENOENT') {
+           throw error;
+        }
+      } else {
+        throw error;
       }
     }
   }
