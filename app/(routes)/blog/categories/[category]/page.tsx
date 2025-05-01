@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import { PostCard } from '@/features/post/_components/PostCard';
 import { getAllCategories } from '@/lib/content/categories';
 import { getAllPosts } from '@/lib/content/posts';
+import { CategoryIcon } from '@/components/post/CategoryIcon';
 
 /**
  * ビルド時に静的なパスを生成する
@@ -74,9 +75,24 @@ const CategoryPostsPage = async ({
 
   return (
     <div className="container mx-auto max-w-5xl px-4 py-8">
-      <h1 className="mb-8 text-3xl font-bold">
-        カテゴリ: <span className="capitalize">{categoryName}</span>
-      </h1>
+      <div className="mb-10">
+        <div className="flex flex-col items-center justify-center">
+          <div className="flex items-center gap-2 mb-3">
+            {/* カテゴリアイコンを表示 */}
+            <div className="w-10 h-10 flex items-center justify-center">
+              <CategoryIcon category={categoryName} size="lg" />
+            </div>
+            <h1 className="text-3xl font-bold text-foreground capitalize ml-3">
+              {categoryName}
+            </h1>
+          </div>
+          <p className="text-center text-muted-foreground">
+            <span className="font-medium text-foreground">{categoryPosts.length}</span> 件の記事
+          </p>
+          <div className="w-full h-px bg-border mt-8"></div>
+        </div>
+      </div>
+      
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {categoryPosts.map((post) => (
           <PostCard key={post.slug} post={post} />

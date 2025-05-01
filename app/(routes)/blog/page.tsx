@@ -1,6 +1,7 @@
 import { getAllPosts } from '@/lib/content/posts';
 import { PostCard } from '@/features/post/_components/PostCard';
 import type { Metadata } from "next";
+import { BookOpen } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: "ブログ | Shochan.dev",
@@ -13,7 +14,16 @@ export default async function BlogPage() {
 
   return (
     <main className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold mb-8">記事一覧</h1>
+      <div className="mb-10">
+        <div className="flex items-center justify-center gap-3 mb-2">
+          <BookOpen className="w-6 h-6 text-primary" />
+          <h1 className="text-3xl font-bold text-foreground">記事一覧</h1>
+        </div>
+        <p className="text-center text-muted-foreground mt-2 max-w-xl mx-auto">
+          技術的な知見やプログラミングに関する記事を投稿しています
+        </p>
+        <div className="w-full h-px bg-border mt-8"></div>
+      </div>
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {posts.map((post) => (

@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+import { Hash } from 'lucide-react';
 
 import { PostCard } from '@/features/post/_components/PostCard';
 import { getAllPosts } from '@/lib/content/posts';
@@ -69,9 +70,23 @@ const TagPostsPage = async ({
 
   return (
     <div className="container mx-auto max-w-5xl px-4 py-8">
-      <h1 className="mb-8 text-3xl font-bold">
-        タグ: <span className="capitalize">{tagName}</span>
-      </h1>
+      <div className="mb-10">
+        <div className="flex flex-col items-center justify-center">
+          <div className="flex items-center gap-2 mb-3">
+            <div className="w-8 h-8 flex items-center justify-center">
+              <Hash className="text-secondary w-6 h-6" />
+            </div>
+            <h1 className="text-3xl font-bold text-foreground ml-2">
+              {tagName}
+            </h1>
+          </div>
+          <p className="text-center text-muted-foreground">
+            <span className="font-medium text-foreground">{tagPosts.length}</span> 件の記事
+          </p>
+          <div className="w-full h-px bg-border mt-8"></div>
+        </div>
+      </div>
+      
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {tagPosts.map((post) => (
           <PostCard key={post.slug} post={post} />
