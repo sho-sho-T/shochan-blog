@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
 import { MarkdownRenderer } from '@/components/mdx/MarkdownRenderer';
+import { CategoryIcon } from '@/components/post/CategoryIcon';
 import { getAllPosts, getPostBySlug } from '@/lib/content/posts';
 import { format, parseISO } from 'date-fns';
 
@@ -76,6 +77,13 @@ const PostDetailPage = async ({ params }: Props) => {
     <article className="prose prose-zinc mx-auto max-w-3xl dark:prose-invert lg:prose-lg">
       {/* 記事ヘッダー */}
       <header className="mb-8 border-b pb-4">
+        {/* カテゴリアイコン - 中央配置、ラベルなし、より大きなサイズ、上部に余白追加 */}
+        {category && (
+          <div className="flex justify-center mt-12 mb-10">
+            <CategoryIcon category={category} size="xxl" showLabel={false} />
+          </div>
+        )}
+        
         <h1 className="mb-2 text-3xl font-bold leading-tight lg:text-4xl">
           {title}
         </h1>
