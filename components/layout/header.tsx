@@ -9,11 +9,6 @@ export function Header() {
             Shochan.dev
           </Link>
         </div>
-        <nav className="md:mr-8">
-          <Link href="/blog" className="text-foreground/80 hover:text-primary transition-colors">
-            Blog
-          </Link>
-        </nav>
       </div>
     </header>
   );
