@@ -134,15 +134,19 @@ Git ベースのコンテンツ管理を行う静的ブログサイトの構築�
         - [ ] `npm run dev` で存在しないURLにアクセスした際にカスタム404ページが表示されること。
 
 12. **[T4-2] カテゴリアイコン表示機能実装**
-    - 概要: カテゴリ名と `/public/images/icons` 配下のアイコン画像をマッピングし、記事カードコンポーネント (`PostCard`) で **Next/Image** を使用して表示する。
+    - 概要: カテゴリ名と `/public/images/icons` 配下のアイコン画像をマッピングし、記事カードコンポーネント (`PostCard`) で **Next/Image** を使用して表示する。また、記事詳細ページにもカテゴリアイコンを表示する。
     - 完了条件:
-        - [ ] `/features/post/_components/PostCard.tsx` の `CATEGORY_ICONS` 定義を修正し、各カテゴリに対応するアイコン画像のパスをマッピングする (例: `TypeScript` -> `/images/icons/typescript.png`)。
-        - [ ] マッピングが存在しないカテゴリにはデフォルトの表示（例: 絵文字または汎用アイコン）が適用される。
-        - [ ] `PostCard` コンポーネント内でカテゴリに対応するアイコンを `next/image` を使用して表示する。画像が存在しない場合のフォールバック処理を含む。
-        - [ ] `public/images/icons/` に主要なカテゴリに対応するアイコンファイル (例: `typescript.png`, `nextjs.png`, `javascript.png`, `ruby.png`) が配置されている。
+        - [x] `/features/post/_components/PostCard.tsx` の `CATEGORY_ICONS` 定義を修正し、各カテゴリに対応するアイコン画像のパスをマッピングする (例: `TypeScript` -> `/images/icons/typescript.png`)。
+        - [x] マッピングが存在しないカテゴリにはデフォルトの表示（例: 絵文字または汎用アイコン）が適用される。
+        - [x] `PostCard` コンポーネント内でカテゴリに対応するアイコンを `next/image` を使用して表示する。画像が存在しない場合のフォールバック処理を含む。
+        - [x] `public/images/icons/` に主要なカテゴリに対応するアイコンファイル (例: `typescript.png`, `nextjs.png`, `javascript.png`, `ruby.png`) が配置されている。
+        - [x] 記事詳細ページ (`/app/(routes)/blog/[slug]/page.tsx`) にもカテゴリアイコンを表示する機能を追加する。
+        - [x] アイコンはタイトルの上部または横に適切なサイズで表示し、カテゴリ名と一緒に表示する。
+        - [x] アイコン表示のために再利用可能な `CategoryIcon` コンポーネントを作成する (任意)。
     - 動作確認:
-        - [ ] `npm run dev` で記事一覧ページ (`/blog`) を開き、各記事のカテゴリに対応するアイコン画像が表示されること (例: TypeScript の記事には `typescript.png` が表示される)。
-        - [ ] アイコンが未定義のカテゴリや画像ファイルが存在しない場合に、適切にデフォルト表示または非表示になること。
+        - [x] `npm run dev` で記事一覧ページ (`/blog`) を開き、各記事のカテゴリに対応するアイコン画像が表示されること (例: TypeScript の記事には `typescript.png` が表示される)。
+        - [x] アイコンが未定義のカテゴリや画像ファイルが存在しない場合に、適切にデフォルト表示または非表示になること。
+        - [x] 記事詳細ページ (`/blog/[slug]`) でも記事のカテゴリに対応するアイコンが表示されること。
         - [ ] `npm run build` が成功すること。
 
 13. **[T4-3] Markdown レンダリング改善**
