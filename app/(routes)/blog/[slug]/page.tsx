@@ -78,7 +78,7 @@ const PostDetailPage = async ({
   const { title, publishedAt, category, tags, content } = post;
 
   return (
-    <article className="prose prose-zinc mx-auto max-w-3xl dark:prose-invert lg:prose-lg">
+    <article className="prose prose-zinc mx-auto max-w-3xl dark:prose-invert lg:prose-lg mb-10">
       {/* 記事ヘッダー */}
       <header className="mb-8 border-b pb-4">
         {/* カテゴリアイコン - 中央配置、ラベルなし、より大きなサイズ、上部に余白追加 */}
