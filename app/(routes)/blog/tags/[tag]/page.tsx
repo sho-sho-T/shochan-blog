@@ -69,14 +69,14 @@ const TagPostsPage = async ({
   }
 
   return (
-    <div className="container mx-auto max-w-5xl px-4 py-8">
+    <div className="container mx-auto max-w-5xl px-4 md:px-6 py-8 overflow-hidden">
       <div className="mb-10">
         <div className="flex flex-col items-center justify-center">
           <div className="flex items-center gap-2 mb-3">
             <div className="w-8 h-8 flex items-center justify-center">
-              <Hash className="text-secondary w-6 h-6" />
+              <Hash className="text-muted-foreground w-6 h-6" />
             </div>
-            <h1 className="text-3xl font-bold text-foreground ml-2">
+            <h1 className="text-3xl font-bold text-foreground ml-2 break-words">
               {tagName}
             </h1>
           </div>
@@ -87,7 +87,7 @@ const TagPostsPage = async ({
         </div>
       </div>
       
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {tagPosts.map((post) => (
           <PostCard key={post.slug} post={post} />
         ))}

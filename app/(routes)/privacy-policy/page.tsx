@@ -7,22 +7,22 @@ export const metadata: Metadata = {
 
 export default function PrivacyPolicyPage() {
   return (
-    <div className="w-full flex justify-center">
-      <div className="max-w-3xl w-full py-12">
+    <div className="w-full flex justify-center px-4 md:px-6">
+      <div className="max-w-3xl w-full py-12 overflow-hidden">
         <div className="flex flex-col items-center mb-8">
           <div className="w-24 h-24 mb-4 bg-primary-foreground rounded-full flex items-center justify-center">
             <span className="text-4xl">🏝️</span>
           </div>
-          <h1 className="text-3xl font-bold mb-2 text-center">プライバシーポリシー</h1>
+          <h1 className="text-3xl font-bold mb-2 text-center break-words px-4">プライバシーポリシー</h1>
           <time className="text-sm text-muted-foreground" dateTime="2025-05-01">
             更新日: 2025年5月1日
           </time>
         </div>
 
-        <div className="space-y-12">
+        <div className="space-y-12 px-4 md:px-0">
           <section className="flex flex-col items-center">
             <h2 className="text-xl font-semibold mb-4 border-b pb-2 text-center w-full">免責事項</h2>
-            <p className="text-center text-muted-foreground">
+            <p className="text-muted-foreground">
               当サイト「Shochan.dev」では、情報の正確性や安全性に細心の注意を払っておりますが、掲載された内容によって生じた損害等の一切の責任を負いかねます。
               
               <br /><br />
@@ -37,7 +37,7 @@ export default function PrivacyPolicyPage() {
 
           <section className="flex flex-col items-center">
             <h2 className="text-xl font-semibold mb-4 border-b pb-2 text-center w-full">著作権について</h2>
-            <p className="text-center text-muted-foreground">
+            <p className="text-muted-foreground">
               当サイト「Shochan.dev」に掲載されているすべてのコンテンツ（文章、画像、デザイン等）の著作権は、特に記載がない限り当サイト管理者に帰属します。
               
               <br /><br />
