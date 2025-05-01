@@ -74,7 +74,7 @@ const CategoryPostsPage = async ({
   }
 
   return (
-    <div className="container mx-auto max-w-5xl px-4 py-8">
+    <div className="container mx-auto max-w-5xl px-4 md:px-6 py-8 overflow-hidden">
       <div className="mb-10">
         <div className="flex flex-col items-center justify-center">
           <div className="flex items-center gap-2 mb-3">
@@ -82,7 +82,7 @@ const CategoryPostsPage = async ({
             <div className="w-10 h-10 flex items-center justify-center">
               <CategoryIcon category={categoryName} size="lg" />
             </div>
-            <h1 className="text-3xl font-bold text-foreground capitalize ml-3">
+            <h1 className="text-3xl font-bold text-foreground capitalize ml-3 break-words">
               {categoryName}
             </h1>
           </div>
@@ -93,7 +93,7 @@ const CategoryPostsPage = async ({
         </div>
       </div>
       
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {categoryPosts.map((post) => (
           <PostCard key={post.slug} post={post} />
         ))}

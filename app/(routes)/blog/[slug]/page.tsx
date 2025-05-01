@@ -78,40 +78,44 @@ const PostDetailPage = async ({
   const { title, publishedAt, category, tags, content } = post;
 
   return (
-    <article className="prose prose-zinc mx-auto max-w-3xl dark:prose-invert lg:prose-lg mb-10">
-      {/* 記事ヘッダー */}
-      <header className="mb-8 border-b pb-4">
-        {/* カテゴリアイコン - 中央配置、ラベルなし、より大きなサイズ、上部に余白追加 */}
-        {category && (
-          <div className="flex justify-center mt-12 mb-10">
-            <CategoryIcon category={category} size="xxl" showLabel={false} />
+    <div className="container mx-auto px-4">
+      <article className="prose prose-zinc mx-auto max-w-3xl dark:prose-invert lg:prose-lg mb-10 overflow-hidden">
+        {/* 記事ヘッダー */}
+        <header className="mb-8 border-b pb-4">
+          {/* カテゴリアイコン - 中央配置、ラベルなし、より大きなサイズ、上部に余白追加 */}
+          {category && (
+            <div className="flex justify-center mt-12 mb-10">
+              <CategoryIcon category={category} size="xxl" showLabel={false} />
+            </div>
+          )}
+          
+          <h1 className="mb-2 text-3xl font-bold leading-tight lg:text-4xl break-words">
+            {title}
+          </h1>
+          <div className="text-sm text-muted-foreground">
+            <span>公開日: {format(parseISO(publishedAt), 'yyyy年MM月dd日')}</span>
+            {category && <span className="ml-4">カテゴリ: {category}</span>}
           </div>
-        )}
-        
-        <h1 className="mb-2 text-3xl font-bold leading-tight lg:text-4xl">
-          {title}
-        </h1>
-        <div className="text-sm text-muted-foreground">
-          <span>公開日: {format(parseISO(publishedAt), 'yyyy年MM月dd日')}</span>
-          {category && <span className="ml-4">カテゴリ: {category}</span>}
-        </div>
-        {tags && tags.length > 0 && (
-          <div className="mt-2">
-            {tags.map((tag) => (
-              <span
-                key={tag}
-                className="mr-2 inline-block rounded bg-secondary px-2 py-0.5 text-xs font-medium text-secondary-foreground"
-              >
-                #{tag}
-              </span>
-            ))}
-          </div>
-        )}
-      </header>
+          {tags && tags.length > 0 && (
+            <div className="mt-2 flex flex-wrap">
+              {tags.map((tag) => (
+                <span
+                  key={tag}
+                  className="mr-2 mb-2 inline-block rounded bg-secondary px-2 py-0.5 text-xs font-medium text-secondary-foreground"
+                >
+                  #{tag}
+                </span>
+              ))}
+            </div>
+          )}
+        </header>
 
-      {/* 記事本文 */}
-      <MarkdownRenderer content={content} />
-    </article>
+        {/* 記事本文 */}
+        <div className="max-w-full overflow-hidden">
+          <MarkdownRenderer content={content} />
+        </div>
+      </article>
+    </div>
   );
 };
 
