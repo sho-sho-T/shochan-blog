@@ -14,18 +14,9 @@ export default async function HomePage() {
         <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl mb-6">
           Shochan.dev
         </h1>
-        <p className="max-w-[700px] text-muted-foreground md:text-xl mb-8">
-          フロントエンド開発者として、技術的な知見や学習内容を発信するブログサイトです。
-          Next.js, React, TypeScriptなどのモダンなWeb技術について発信しています。
+        <p className="max-w-[700px] text-muted-foreground md:text-l mb-8">
+          Webアプリケーション開発、AI, AI駆動開発、など気まぐれで記事を書いています。
         </p>
-        <div className="flex flex-col sm:flex-row gap-4">
-          <Button asChild>
-            <Link href="/blog">ブログを見る</Link>
-          </Button>
-          <Button variant="outline" asChild>
-            <Link href="/profile">プロフィールを見る</Link>
-          </Button>
-        </div>
       </section>
 
       {/* 最新記事セクション */}
