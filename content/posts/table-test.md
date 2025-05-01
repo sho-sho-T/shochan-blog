@@ -1,7 +1,7 @@
 ---
 title: 'Markdownスタイルテスト'
 publishedAt: '2024-08-01'
-status: 'published'
+status: 'draft'
 category: 'Test'
 tags: ['markdown', 'table', 'code']
 ---
