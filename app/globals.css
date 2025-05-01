@@ -151,5 +151,10 @@ pre, pre code, .hljs {
   }
   body {
     @apply bg-background text-foreground;
+    background-image: url('/images/background.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
   }
 }
