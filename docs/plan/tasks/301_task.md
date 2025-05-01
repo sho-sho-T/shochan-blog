@@ -152,13 +152,13 @@ Git ベースのコンテンツ管理を行う静的ブログサイトの構築�
 13. **[T4-3] Markdown レンダリング改善**
     - 概要: `MarkdownRenderer` コンポーネントにおけるテーブル表示の不具合を修正し、コードブロックのスタイルを改善する。
     - 完了条件:
-        - [ ] `components/mdx/MarkdownRenderer.tsx` または関連する CSS (`/app/globals.css`), `mdx-components.tsx` を修正し、Markdown 内のテーブル (`<table>`, `<th>`, `<td>` 等) が適切なスタイル（罫線、パディング等）で表示されるようにする。
-        - [ ] コードブロック (`<pre><code>`) に視認しやすい背景色 (例: ダークグレー系) と適切なパディングを適用する。 `rehype-highlight` によって付与されるクラス (`hljs`) を利用してスタイリングする。
-        - [ ] スタイリングは shadcn-ui のテーマ（CSS 変数）と整合性を保つ。
+        - [x] `components/mdx/MarkdownRenderer.tsx` または関連する CSS (`/app/globals.css`), `mdx-components.tsx` を修正し、Markdown 内のテーブル (`<table>`, `<th>`, `<td>` 等) が適切なスタイル（罫線、パディング等）で表示されるようにする。
+        - [x] コードブロック (`<pre><code>`) に視認しやすい背景色 (例: ダークグレー系) と適切なパディングを適用する。 `rehype-highlight` によって付与されるクラス (`hljs`) を利用してスタイリングする。
+        - [x] スタイリングは shadcn-ui のテーマ（CSS 変数）と整合性を保つ。
     - 動作確認:
-        - [ ] テーブルを含む Markdown ファイル (`content/posts/dummy-post-1.md` 等に追記して確認) を記事詳細ページで表示し、テーブルが整形されていることを確認。
-        - [ ] コードブロックが表示されている記事詳細ページで、コードブロックに背景色が付与され、読みやすくなっていることを確認。
-        - [ ] Storybook で `MarkdownRenderer` コンポーネントの表示を確認 (任意)。
+        - [x] テーブルを含む Markdown ファイル (`content/posts/dummy-post-1.md` 等に追記して確認) を記事詳細ページで表示し、テーブルが整形されていることを確認。
+        - [x] コードブロックが表示されている記事詳細ページで、コードブロックに背景色が付与され、読みやすくなっていることを確認。
+        - [ x] Storybook で `MarkdownRenderer` コンポーネントの表示を確認 (任意)。
 
 14. **[T4-4] ホーム画面への最新記事表示**
     - 概要: ホーム画面 (`/app/(routes)/page.tsx`) に最新の公開記事を数件 (例: 3件) 表示するセクションを追加する。
