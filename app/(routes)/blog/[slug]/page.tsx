@@ -6,12 +6,6 @@ import { CategoryIcon } from '@/components/post/CategoryIcon';
 import { getAllPosts, getPostBySlug } from '@/lib/content/posts';
 import { format, parseISO } from 'date-fns';
 
-type Props = {
-  params: {
-    slug: string;
-  };
-};
-
 /**
  * ビルド時に静的なパスを生成する
  */
@@ -27,8 +21,13 @@ export async function generateStaticParams() {
 /**
  * メタデータを生成する
  */
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const post = await getPostBySlug(params.slug);
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }> 
+}): Promise<Metadata> {
+  const { slug } = await params; // await してから slug を取得
+  const post = await getPostBySlug(slug);
 
   if (!post) {
     return {};
@@ -42,10 +41,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       // description: post.excerpt,
       type: 'article',
       publishedTime: post.publishedAt,
-      url: `/blog/${post.slug}`,
+      url: `/blog/${slug}`,
       // images: [ // 必要に応じてOGP画像を追加
       //   {
-      //     url: `/images/posts/${post.slug}/ogp.png`, // 例
+      //     url: `/images/posts/${slug}/ogp.png`, // 例
       //     width: 1200,
       //     height: 630,
       //     alt: post.title,
@@ -56,7 +55,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       card: 'summary_large_image',
       title: post.title,
       // description: post.excerpt,
-      // images: [`/images/posts/${post.slug}/ogp.png`], // 例
+      // images: [`/images/posts/${slug}/ogp.png`], // 例
     },
   };
 }
@@ -64,8 +63,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 /**
  * 記事詳細ページ
  */
-const PostDetailPage = async ({ params }: Props) => {
-  const post = await getPostBySlug(params.slug);
+const PostDetailPage = async ({
+  params,
+}: {
+  params: Promise<{ slug: string }> 
+}) => {
+  const { slug } = await params;
+  const post = await getPostBySlug(slug);
 
   if (!post || post.status === 'draft') {
     notFound(); // 下書き記事や存在しない記事は404

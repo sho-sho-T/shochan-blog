@@ -5,12 +5,6 @@ import { PostCard } from '@/features/post/_components/PostCard';
 import { getAllPosts } from '@/lib/content/posts';
 import { getAllTags } from '@/lib/content/tags';
 
-type Props = {
-  params: {
-    tag: string;
-  };
-};
-
 /**
  * ビルド時に静的なパスを生成する
  */
@@ -25,9 +19,13 @@ export async function generateStaticParams() {
 /**
  * メタデータを生成する
  */
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const tagName = decodeURIComponent(params.tag);
-  // TODO: タグが存在しない場合の処理を追加する
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ tag: string }> 
+}): Promise<Metadata> {
+  const { tag } = await params;
+  const tagName = decodeURIComponent(tag);
 
   return {
     title: `タグ: ${tagName}`,
@@ -35,7 +33,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: `タグ: ${tagName}`,
       description: `${tagName} タグの記事一覧`,
-      url: `/blog/tags/${params.tag}`,
+      url: `/blog/tags/${tag}`,
     },
     twitter: {
       card: 'summary',
@@ -48,15 +46,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 /**
  * タグ別記事一覧ページ
  */
-const TagPostsPage = async ({ params }: Props) => {
-  const tagName = decodeURIComponent(params.tag);
+const TagPostsPage = async ({
+  params,
+}: {
+  params: Promise<{ tag: string }> 
+}) => {
+  const { tag } = await params;
+  const tagName = decodeURIComponent(tag);
   const allPosts = await getAllPosts();
 
   // 指定されたタグを持つ記事をフィルタリング (公開記事のみ)
   const tagPosts = allPosts.filter(
     (post) =>
       post.status === 'published' &&
-      post.tags?.some((tag) => tag.toLowerCase() === tagName.toLowerCase()), // 大文字小文字を区別しない
+      post.tags?.some((t) => t.toLowerCase() === tagName.toLowerCase()), // t を使用するように修正 (元コードのtagと変数名が被るため)
   );
 
   if (tagPosts.length === 0) {

@@ -5,12 +5,6 @@ import { PostCard } from '@/features/post/_components/PostCard';
 import { getAllCategories } from '@/lib/content/categories';
 import { getAllPosts } from '@/lib/content/posts';
 
-type Props = {
-  params: {
-    category: string;
-  };
-};
-
 /**
  * ビルド時に静的なパスを生成する
  */
@@ -27,8 +21,13 @@ export async function generateStaticParams() {
 /**
  * メタデータを生成する
  */
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const categoryName = decodeURIComponent(params.category);
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ category: string }> 
+}): Promise<Metadata> {
+  const { category } = await params;
+  const categoryName = decodeURIComponent(category);
   // TODO: カテゴリが存在しない場合の処理を追加する
 
   return {
@@ -37,7 +36,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: `カテゴリ: ${categoryName}`,
       description: `${categoryName} カテゴリの記事一覧`,
-      url: `/blog/categories/${params.category}`,
+      url: `/blog/categories/${category}`,
     },
     twitter: {
       card: 'summary',
@@ -50,8 +49,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 /**
  * カテゴリ別記事一覧ページ
  */
-const CategoryPostsPage = async ({ params }: Props) => {
-  const categoryName = decodeURIComponent(params.category);
+const CategoryPostsPage = async ({
+  params,
+}: {
+  params: Promise<{ category: string }> 
+}) => {
+  const { category } = await params;
+  const categoryName = decodeURIComponent(category);
   const allPosts = await getAllPosts();
 
   // 指定されたカテゴリの記事をフィルタリング (公開記事のみ)
