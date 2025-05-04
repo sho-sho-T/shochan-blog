@@ -40,7 +40,7 @@ export default async function HomePage() {
               </div>
               <h3 className="text-xl font-semibold">ITフラッシュカード</h3>
               <p className="text-sm text-muted-foreground mt-2">
-                IT用語や知識を効率的に学習できるフラッシュカードアプリ
+                IT用語や知識を学習できるフラッシュカードアプリ
               </p>
             </Link>
             <div className="mt-4 pt-3 border-t flex justify-center">
