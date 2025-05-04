@@ -1,7 +1,7 @@
 ---
 title: 'TypeScriptとReact Hooksを使いこなす: カスタムフックの基本'
 publishedAt: '2024-07-27'
-status: 'published'
+status: 'draft'
 category: 'TypeScript'
 tags: ['react', 'typescript', 'hooks', 'custom-hook']
 ---
