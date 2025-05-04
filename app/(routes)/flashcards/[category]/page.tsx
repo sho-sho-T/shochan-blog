@@ -1,5 +1,6 @@
 import { getAllDecks, getDeckByCategory } from "@/lib/content/flashcards";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowLeft } from "lucide-react";
 import { notFound } from "next/navigation";
 import { ClientFlashcards } from "@/features/flashcard/_components/ClientFlashcards";
@@ -25,13 +26,13 @@ export async function generateMetadata({ params }: FlashcardCategoryPageProps) {
   
   if (!deck) {
     return {
-      title: "デッキが見つかりません",
+      title: "デッキが見つかりません | ITフラッシュカード",
       description: "指定されたフラッシュカードデッキは存在しません。",
     };
   }
 
   return {
-    title: `${deck.title} | フラッシュカード`,
+    title: `${deck.title} | ITフラッシュカード`,
     description: `${deck.title}のフラッシュカードで学習します。全${deck.cards.length}カード。`,
   };
 }
@@ -53,7 +54,18 @@ export default async function FlashcardCategoryPage({ params }: FlashcardCategor
           <ArrowLeft className="h-4 w-4 mr-1" />
           デッキ一覧に戻る
         </Link>
-        <h1 className="text-3xl font-bold tracking-tight">{deck.title}</h1>
+        <div className="flex items-center">
+          <div className="relative w-7 h-7 mr-3">
+            <Image 
+              src="/images/flashcards.png" 
+              alt="アイコン" 
+              width={28} 
+              height={28}
+              className="object-contain"
+            />
+          </div>
+          <h1 className="text-3xl font-bold tracking-tight">{deck.title}</h1>
+        </div>
       </div>
 
       <div className="mb-8">

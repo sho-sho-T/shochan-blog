@@ -1,11 +1,12 @@
 import { DeckCard } from "@/features/flashcard/_components/DeckCard";
 import { getAllDecks } from "@/lib/content/flashcards";
 import Link from "next/link";
+import Image from "next/image";
 import { ChevronLeft } from "lucide-react";
 
 export const metadata = {
-  title: "フラッシュカード | Flashcards",
-  description: "暗記学習のためのフラッシュカードアプリ",
+  title: "ITフラッシュカード | Flashcards",
+  description: "IT用語や知識を効率的に学習できるフラッシュカードアプリ",
 };
 
 export default async function FlashcardsPage() {
@@ -18,7 +19,18 @@ export default async function FlashcardsPage() {
           <ChevronLeft className="h-4 w-4 mr-1" />
           ホームに戻る
         </Link>
-        <h1 className="text-3xl font-bold tracking-tight">フラッシュカード</h1>
+        <div className="flex items-center">
+          <div className="relative w-8 h-8 mr-3">
+            <Image 
+              src="/images/flashcards.png" 
+              alt="アイコン" 
+              width={32} 
+              height={32}
+              className="object-contain"
+            />
+          </div>
+          <h1 className="text-3xl font-bold tracking-tight">ITフラッシュカード</h1>
+        </div>
       </div>
 
       <div className="mb-8">
