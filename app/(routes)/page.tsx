@@ -43,6 +43,14 @@ export default async function HomePage() {
                 IT用語や知識を効率的に学習できるフラッシュカードアプリ
               </p>
             </Link>
+            <div className="mt-4 pt-3 border-t flex justify-center">
+              <Link 
+                href="/flashcards/cards" 
+                className="text-xs text-primary hover:underline flex items-center"
+              >
+                全カード一覧を見る →
+              </Link>
+            </div>
           </div>
         </div>
       </section>

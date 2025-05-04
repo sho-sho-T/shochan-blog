@@ -2,7 +2,8 @@ import { DeckCard } from "@/features/flashcard/_components/DeckCard";
 import { getAllDecks } from "@/lib/content/flashcards";
 import Link from "next/link";
 import Image from "next/image";
-import { ChevronLeft } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { ChevronLeft, List } from "lucide-react";
 
 export const metadata = {
   title: "ITフラッシュカード | Flashcards",
@@ -11,6 +12,8 @@ export const metadata = {
 
 export default async function FlashcardsPage() {
   const decks = await getAllDecks();
+  // 全カード数の計算
+  const totalCards = decks.reduce((total, deck) => total + deck.cardCount, 0);
 
   return (
     <div className="container px-4 py-12 mx-auto">
@@ -33,10 +36,18 @@ export default async function FlashcardsPage() {
         </div>
       </div>
 
-      <div className="mb-8">
+      <div className="mb-8 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <p className="text-muted-foreground">
           学習したいカテゴリを選んでください。各カテゴリには複数の問題カードが含まれています。
+          <br />
+          <span className="text-sm">合計 {totalCards} 枚のカードがあります</span>
         </p>
+        <Button asChild variant="outline" size="sm" className="shrink-0">
+          <Link href="/flashcards/cards" className="flex items-center gap-2">
+            <List className="h-4 w-4" />
+            全カード一覧を見る
+          </Link>
+        </Button>
       </div>
 
       {decks.length > 0 ? (
