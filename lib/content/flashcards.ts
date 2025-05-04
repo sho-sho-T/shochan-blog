@@ -11,7 +11,7 @@ function generateDeckTitle(category: string): string {
   const titleMap: Record<string, string> = {
     'pm': 'プロジェクトマネジメント',
     'ap': '応用情報技術者試験',
-    // 必要に応じて他のカテゴリも追加
+    'fe': '基本情報技術者試験',
   };
 
   return titleMap[category] || category.toUpperCase();
