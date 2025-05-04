@@ -2,16 +2,23 @@ import { useState } from "react";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Flashcard as FlashcardType } from "@/lib/content/types";
-import { ChevronRight, Eye } from "lucide-react";
+import { ChevronRight, Eye, CheckCircle } from "lucide-react";
 
 interface FlashcardProps {
   card: FlashcardType;
   onNext: () => void;
   totalCards: number;
   currentIndex: number;
+  isCompleted?: boolean;
 }
 
-export function Flashcard({ card, onNext, totalCards, currentIndex }: FlashcardProps) {
+export function Flashcard({ 
+  card, 
+  onNext, 
+  totalCards, 
+  currentIndex,
+  isCompleted = false 
+}: FlashcardProps) {
   const [showAnswer, setShowAnswer] = useState(false);
 
   const handleShowAnswer = () => {
@@ -26,8 +33,16 @@ export function Flashcard({ card, onNext, totalCards, currentIndex }: FlashcardP
   return (
     <Card className="w-full max-w-2xl mx-auto">
       <CardContent className="pt-6">
-        <div className="text-sm text-muted-foreground mb-2">
-          質問 ({currentIndex + 1}/{totalCards})
+        <div className="flex justify-between items-center mb-2">
+          <div className="text-sm text-muted-foreground">
+            質問 ({currentIndex + 1}/{totalCards})
+          </div>
+          {isCompleted && (
+            <div className="flex items-center text-sm text-green-500">
+              <CheckCircle className="h-4 w-4 mr-1" />
+              <span>完了</span>
+            </div>
+          )}
         </div>
         <div className="text-xl font-semibold mb-6 min-h-[4rem]">
           {card.question}
