@@ -21,7 +21,7 @@ function generateDeckTitle(category: string): string {
  * すべてのフラッシュカードデッキの情報を取得する関数
  * カード自体のデータは含まない（カード数のみ）
  */
-export async function getAllDecks(): Promise<Omit<Deck, 'cards'>[]> {
+export async function getAllDecks(): Promise<(Omit<Deck, 'cards'> & { cardCount: number })[]> {
   try {
     // フラッシュカードディレクトリが存在するか確認
     if (!fs.existsSync(FLASHCARDS_DIR)) {
@@ -56,7 +56,7 @@ export async function getAllDecks(): Promise<Omit<Deck, 'cards'>[]> {
     );
 
     // nullを除外して返す
-    return decks.filter(Boolean) as Omit<Deck, 'cards'>[];
+    return decks.filter(Boolean) as (Omit<Deck, 'cards'> & { cardCount: number })[];
   } catch (error) {
     console.error('Error getting all decks:', error);
     return [];
