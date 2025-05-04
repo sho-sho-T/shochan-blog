@@ -18,7 +18,10 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: FlashcardCategoryPageProps) {
-  const deck = await getDeckByCategory(params.category);
+  const resolvedParams = await params;
+  const category = resolvedParams.category;
+  
+  const deck = await getDeckByCategory(category);
   
   if (!deck) {
     return {
@@ -34,7 +37,10 @@ export async function generateMetadata({ params }: FlashcardCategoryPageProps) {
 }
 
 export default async function FlashcardCategoryPage({ params }: FlashcardCategoryPageProps) {
-  const deck = await getDeckByCategory(params.category);
+  const resolvedParams = await params;
+  const category = resolvedParams.category;
+
+  const deck = await getDeckByCategory(category);
 
   if (!deck || !deck.cards.length) {
     notFound();
