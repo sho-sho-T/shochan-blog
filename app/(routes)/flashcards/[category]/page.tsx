@@ -5,12 +5,6 @@ import { ArrowLeft } from "lucide-react";
 import { notFound } from "next/navigation";
 import { ClientFlashcards } from "@/features/flashcard/_components/ClientFlashcards";
 
-interface FlashcardCategoryPageProps {
-  params: {
-    category: string;
-  };
-}
-
 export async function generateStaticParams() {
   const decks = await getAllDecks();
   return decks.map((deck) => ({
@@ -18,9 +12,8 @@ export async function generateStaticParams() {
   }));
 }
 
-export async function generateMetadata({ params }: FlashcardCategoryPageProps) {
-  const resolvedParams = await params;
-  const category = resolvedParams.category;
+export async function generateMetadata({ params }: { params: Promise<{ category: string }> }) {
+  const { category } = await params;
   
   const deck = await getDeckByCategory(category);
   
@@ -37,9 +30,8 @@ export async function generateMetadata({ params }: FlashcardCategoryPageProps) {
   };
 }
 
-export default async function FlashcardCategoryPage({ params }: FlashcardCategoryPageProps) {
-  const resolvedParams = await params;
-  const category = resolvedParams.category;
+export default async function FlashcardCategoryPage({ params }: { params: Promise<{ category: string }> }) {
+  const { category } = await params;
 
   const deck = await getDeckByCategory(category);
 
