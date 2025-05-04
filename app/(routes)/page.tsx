@@ -17,6 +17,12 @@ export default async function HomePage() {
         <p className="max-w-[700px] text-muted-foreground md:text-xl mb-8 px-4">
           Webアプリケーション開発、AI, AI駆動開発、など気まぐれで記事を書いています。
         </p>
+        
+        <Button asChild size="lg" className="mb-8">
+          <Link href="/flashcards">
+            フラッシュカードで学習する
+          </Link>
+        </Button>
       </section>
 
       {/* 最新記事セクション */}
