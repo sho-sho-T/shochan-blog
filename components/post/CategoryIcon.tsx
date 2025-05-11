@@ -14,7 +14,7 @@ const CATEGORY_ICONS: Record<string, string> = {
 const CATEGORY_COLORS: Record<string, { bgClass: string; textClass: string }> = {
   TypeScript: { bgClass: 'bg-blue-100', textClass: 'text-blue-600' },
   JavaScript: { bgClass: 'bg-yellow-100', textClass: 'text-yellow-600' },
-  NextJS: { bgClass: 'bg-black', textClass: 'text-white' },
+  NextJS: { bgClass: 'bg-transparent', textClass: 'text-white' },
   Ruby: { bgClass: 'bg-red-100', textClass: 'text-red-600' },
   Cursor: { bgClass: 'bg-purple-100', textClass: 'text-purple-600' },
   CSS: { bgClass: 'bg-blue-100', textClass: 'text-blue-500' },
