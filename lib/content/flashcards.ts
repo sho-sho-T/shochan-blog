@@ -12,6 +12,8 @@ function generateDeckTitle(category: string): string {
     'pm': 'プロジェクトマネジメント',
     'ap': '応用情報技術者試験',
     'fe': '基本情報技術者試験',
+    'important_aws_services': 'AWS 重要サービス',
+    'other_aws_services': 'AWS その他のサービス',
   };
 
   return titleMap[category] || category.toUpperCase();

@@ -1,0 +1,329 @@
+{
+  "cards": [
+    {
+      "id": "aws_oth_001",
+      "question": "AWS Data Exchangeとは何ですか？[分析]",
+      "answer": "データセットの検索、購読、使用のためのサービス。"
+    },
+    {
+      "id": "aws_oth_002",
+      "question": "AWS Data Pipelineとは何ですか？[分析]",
+      "answer": "異なるAWSコンピューティングおよびストレージサービス間でのデータ移動を自動化するサービス。"
+    },
+    {
+      "id": "aws_oth_003",
+      "question": "AWS Glueとは何ですか？[分析]",
+      "answer": "ETL（抽出、変換、ロード）サービス。データカタログ機能も提供します。"
+    },
+    {
+      "id": "aws_oth_004",
+      "question": "Amazon Kinesisとは何ですか？[分析]",
+      "answer": "リアルタイムのストリーミングデータを収集、処理、分析するサービス。"
+    },
+    {
+      "id": "aws_oth_005",
+      "question": "AWS Lake Formationとは何ですか？[分析]",
+      "answer": "データレイクの構築と管理を簡素化するサービス。"
+    },
+    {
+      "id": "aws_oth_006",
+      "question": "Amazon MSKとは何ですか？[分析]",
+      "answer": "Apache Kafkaのフルマネージドサービス。ストリーミングデータの処理に使用されます。"
+    },
+    {
+      "id": "aws_oth_007",
+      "question": "Amazon OpenSearch Serviceとは何ですか？[分析]",
+      "answer": "検索および分析エンジン。ログ分析、リアルタイム監視に利用されます。"
+    },
+    {
+      "id": "aws_oth_008",
+      "question": "Amazon QuickSightとは何ですか？[分析]",
+      "answer": "ビジネスインテリジェンスサービス。データの可視化とダッシュボード作成に使用されます。"
+    },
+    {
+      "id": "aws_oth_009",
+      "question": "Amazon AppFlowとは何ですか？[アプリケーション統合]",
+      "answer": "SaaSアプリケーションとAWSサービス間のデータ転送を簡素化するサービス。"
+    },
+    {
+      "id": "aws_oth_010",
+      "question": "AWS AppSyncとは何ですか？[アプリケーション統合]",
+      "answer": "GraphQLインターフェースを使用してアプリケーションデータをリアルタイムで更新するサービス。"
+    },
+    {
+      "id": "aws_oth_011",
+      "question": "AWS Outpostsとは何ですか？[コンピューティング]",
+      "answer": "AWSインフラストラクチャをオンプレミス環境に拡張するサービス。"
+    },
+    {
+      "id": "aws_oth_012",
+      "question": "AWS Serverless Application Repositoryとは何ですか？[コンピューティング]",
+      "answer": "サーバーレスアプリケーションの検索、デプロイ、公開のためのマネージドリポジトリ。"
+    },
+    {
+      "id": "aws_oth_013",
+      "question": "VMware Cloud on AWSとは何ですか？[コンピューティング]",
+      "answer": "VMware環境をAWSにシームレスに拡張するサービス。"
+    },
+    {
+      "id": "aws_oth_014",
+      "question": "AWS Wavelengthとは何ですか？[コンピューティング]",
+      "answer": "5Gネットワークの超低レイテンシーコンピューティングを提供するサービス。"
+    },
+    {
+      "id": "aws_oth_015",
+      "question": "Amazon ECS Anywhereとは何ですか？[コンテナ]",
+      "answer": "オンプレミス環境でECSを実行するための拡張機能。"
+    },
+    {
+      "id": "aws_oth_016",
+      "question": "Amazon EKS Anywhereとは何ですか？[コンテナ]",
+      "answer": "オンプレミス環境でEKSを実行するための拡張機能。"
+    },
+    {
+      "id": "aws_oth_017",
+      "question": "Amazon EKS Distroとは何ですか？[コンテナ]",
+      "answer": "独自のインフラストラクチャ上でAmazon EKSと同じKubernetesディストリビューションを実行するためのサービス。"
+    },
+    {
+      "id": "aws_oth_018",
+      "question": "Amazon DocumentDBとは何ですか？[データベース]",
+      "answer": "MongoDB互換のドキュメントデータベースサービス。"
+    },
+    {
+      "id": "aws_oth_019",
+      "question": "Amazon Keyspacesとは何ですか？[データベース]",
+      "answer": "Apache Cassandra互換のマネージドデータベースサービス。"
+    },
+    {
+      "id": "aws_oth_020",
+      "question": "Amazon Neptuneとは何ですか？[データベース]",
+      "answer": "グラフデータベースサービス。高度に接続されたデータセットの管理と照会に最適化されています。"
+    },
+    {
+      "id": "aws_oth_021",
+      "question": "Amazon QLDBとは何ですか？[データベース]",
+      "answer": "フルマネージド型の台帳データベース。暗号的に検証可能な変更履歴を維持します。"
+    },
+    {
+      "id": "aws_oth_022",
+      "question": "Amazon Timestreamとは何ですか？[データベース]",
+      "answer": "IoTおよび運用アプリケーション向けの時系列データベースサービス。"
+    },
+    {
+      "id": "aws_oth_023",
+      "question": "AWS Compute Optimizerとは何ですか？[マネジメントとガバナンス]",
+      "answer": "AWSコンピューティングリソースの最適なサイジングを推奨するサービス。"
+    },
+    {
+      "id": "aws_oth_024",
+      "question": "AWS Control Towerとは何ですか？[マネジメントとガバナンス]",
+      "answer": "複数アカウント環境をセットアップ、管理するためのサービス。"
+    },
+    {
+      "id": "aws_oth_025",
+      "question": "AWS License Managerとは何ですか？[マネジメントとガバナンス]",
+      "answer": "ソフトウェアライセンスを管理するサービス。"
+    },
+    {
+      "id": "aws_oth_026",
+      "question": "Amazon Managed Grafanaとは何ですか？[マネジメントとガバナンス]",
+      "answer": "データ可視化のためのフルマネージド型Grafanaサービス。"
+    },
+    {
+      "id": "aws_oth_027",
+      "question": "Amazon Managed Service for Prometheusとは何ですか？[マネジメントとガバナンス]",
+      "answer": "Prometheusと互換性のあるモニタリングサービス。"
+    },
+    {
+      "id": "aws_oth_028",
+      "question": "AWS Personal Health Dashboardとは何ですか？[マネジメントとガバナンス]",
+      "answer": "AWSサービスの状態と個人アカウントへの影響を確認するサービス。"
+    },
+    {
+      "id": "aws_oth_029",
+      "question": "AWS Protonとは何ですか？[マネジメントとガバナンス]",
+      "answer": "マイクロサービスやサーバーレスアプリケーションのインフラストラクチャをプロビジョニングするサービス。"
+    },
+    {
+      "id": "aws_oth_030",
+      "question": "AWS Service Catalogとは何ですか？[マネジメントとガバナンス]",
+      "answer": "IT管理者が承認したITサービスカタログを作成、管理するサービス。"
+    },
+    {
+      "id": "aws_oth_031",
+      "question": "AWS Well-Architected Toolとは何ですか？[マネジメントとガバナンス]",
+      "answer": "ワークロードをAWSのベストプラクティスに照らし合わせて評価するサービス。"
+    },
+    {
+      "id": "aws_oth_032",
+      "question": "AWS Amplifyとは何ですか？[フロントエンドのウェブとモバイル]",
+      "answer": "モバイルおよびウェブアプリケーションの開発と展開を簡素化するサービス。"
+    },
+    {
+      "id": "aws_oth_033",
+      "question": "AWS Device Farmとは何ですか？[フロントエンドのウェブとモバイル]",
+      "answer": "物理的なモバイルデバイスでアプリをテストするサービス。"
+    },
+    {
+      "id": "aws_oth_034",
+      "question": "Amazon Pinpointとは何ですか？[フロントエンドのウェブとモバイル]",
+      "answer": "マルチチャネルユーザーエンゲージメントサービス。"
+    },
+    {
+      "id": "aws_oth_035",
+      "question": "Amazon Elastic Transcoderとは何ですか？[メディアサービス]",
+      "answer": "クラウドでのメディア変換サービス。AWS Elemental MediaConvertが新しい代替サービスとして推奨されています。"
+    },
+    {
+      "id": "aws_oth_036",
+      "question": "Amazon Kinesis Video Streamsとは何ですか？[メディアサービス]",
+      "answer": "ビデオストリームの処理と分析のためのサービス。"
+    },
+    {
+      "id": "aws_oth_037",
+      "question": "Amazon Comprehendとは何ですか？[機械学習]",
+      "answer": "自然言語処理（NLP）サービス。"
+    },
+    {
+      "id": "aws_oth_038",
+      "question": "Amazon Forecastとは何ですか？[機械学習]",
+      "answer": "時系列予測サービス。"
+    },
+    {
+      "id": "aws_oth_039",
+      "question": "Amazon Fraud Detectorとは何ですか？[機械学習]",
+      "answer": "オンライン詐欺検出サービス。"
+    },
+    {
+      "id": "aws_oth_040",
+      "question": "Amazon Kendraとは何ですか？[機械学習]",
+      "answer": "企業向け検索サービス。"
+    },
+    {
+      "id": "aws_oth_041",
+      "question": "Amazon Lexとは何ですか？[機械学習]",
+      "answer": "会話型インターフェイス（チャットボット）構築サービス。"
+    },
+    {
+      "id": "aws_oth_042",
+      "question": "Amazon Pollyとは何ですか？[機械学習]",
+      "answer": "テキスト読み上げサービス。"
+    },
+    {
+      "id": "aws_oth_043",
+      "question": "Amazon Rekognitionとは何ですか？[機械学習]",
+      "answer": "画像・動画分析サービス。"
+    },
+    {
+      "id": "aws_oth_044",
+      "question": "Amazon SageMakerとは何ですか？[機械学習]",
+      "answer": "機械学習モデルの構築、トレーニング、デプロイサービス。"
+    },
+    {
+      "id": "aws_oth_045",
+      "question": "Amazon Textractとは何ですか？[機械学習]",
+      "answer": "ドキュメントからのテキスト・データ抽出サービス。"
+    },
+    {
+      "id": "aws_oth_046",
+      "question": "Amazon Transcribeとは何ですか？[機械学習]",
+      "answer": "音声をテキストに変換するサービス。"
+    },
+    {
+      "id": "aws_oth_047",
+      "question": "Amazon Translateとは何ですか？[機械学習]",
+      "answer": "機械翻訳サービス。"
+    },
+    {
+      "id": "aws_oth_048",
+      "question": "AWS Application Discovery Serviceとは何ですか？[移行と転送]",
+      "answer": "オンプレミスアプリケーションの発見と分析サービス。"
+    },
+    {
+      "id": "aws_oth_049",
+      "question": "AWS Application Migration Serviceとは何ですか？[移行と転送]",
+      "answer": "リフト＆シフト移行を自動化するサービス（旧CloudEndure Migration）。"
+    },
+    {
+      "id": "aws_oth_050",
+      "question": "AWS Database Migration Serviceとは何ですか？[移行と転送]",
+      "answer": "データベースの移行サービス。"
+    },
+    {
+      "id": "aws_oth_051",
+      "question": "AWS DataSyncとは何ですか？[移行と転送]",
+      "answer": "ストレージシステム間のデータ転送を簡素化するサービス。"
+    },
+    {
+      "id": "aws_oth_052",
+      "question": "AWS Migration Hubとは何ですか？[移行と転送]",
+      "answer": "複数の移行ツールを一元管理するサービス。"
+    },
+    {
+      "id": "aws_oth_053",
+      "question": "AWS Server Migration Serviceとは何ですか？[移行と転送]",
+      "answer": "VMwareベースの仮想マシンをAWSにインクリメンタルに複製するサービス。"
+    },
+    {
+      "id": "aws_oth_054",
+      "question": "AWS Transfer Familyとは何ですか？[移行と転送]",
+      "answer": "SFTP、FTPS、FTPプロトコルを使用したファイル転送サービス。"
+    },
+    {
+      "id": "aws_oth_055",
+      "question": "AWS Artifactとは何ですか？[セキュリティ、アイデンティティ、コンプライアンス]",
+      "answer": "コンプライアンスレポートへのオンデマンドアクセスを提供するサービス。"
+    },
+    {
+      "id": "aws_oth_056",
+      "question": "AWS Audit Managerとは何ですか？[セキュリティ、アイデンティティ、コンプライアンス]",
+      "answer": "AWSの使用状況の継続的な監査を支援するサービス。"
+    },
+    {
+      "id": "aws_oth_057",
+      "question": "Amazon Detectiveとは何ですか？[セキュリティ、アイデンティティ、コンプライアンス]",
+      "answer": "セキュリティ問題の根本原因を分析するサービス。"
+    },
+    {
+      "id": "aws_oth_058",
+      "question": "AWS Directory Serviceとは何ですか？[セキュリティ、アイデンティティ、コンプライアンス]",
+      "answer": "Microsoft Active Directoryをクラウドで利用するマネージドサービス。"
+    },
+    {
+      "id": "aws_oth_059",
+      "question": "AWS Firewall Managerとは何ですか？[セキュリティ、アイデンティティ、コンプライアンス]",
+      "answer": "複数のアカウントとリソースにわたるファイアウォールルールを一元管理するサービス。"
+    },
+    {
+      "id": "aws_oth_060",
+      "question": "Amazon Macieとは何ですか？[セキュリティ、アイデンティティ、コンプライアンス]",
+      "answer": "機械学習を使って機密データを自動的に検出、分類、保護するサービス。"
+    },
+    {
+      "id": "aws_oth_061",
+      "question": "AWS Network Firewallとは何ですか？[セキュリティ、アイデンティティ、コンプライアンス]",
+      "answer": "VPCのためのステートフルなマネージドネットワークファイアウォール。"
+    },
+    {
+      "id": "aws_oth_062",
+      "question": "AWS Resource Access Manager (RAM)とは何ですか？[セキュリティ、アイデンティティ、コンプライアンス]",
+      "answer": "AWSリソースを複数のアカウントで共有するためのサービス。"
+    },
+    {
+      "id": "aws_oth_063",
+      "question": "AWS Security Hubとは何ですか？[セキュリティ、アイデンティティ、コンプライアンス]",
+      "answer": "AWSセキュリティ状態の包括的な表示を提供するサービス。"
+    },
+    {
+      "id": "aws_oth_064",
+      "question": "AWS PrivateLinkとは何ですか？[ネットワークとコンテンツ配信]",
+      "answer": "VPCとサービス間でプライベート接続を確立するサービス。"
+    },
+    {
+      "id": "aws_oth_065",
+      "question": "AWS AppSyncとは何ですか？[サーバーレス]",
+      "answer": "GraphQLインターフェースを使用したアプリケーションデータの管理サービス。"
+    }
+  ]
+}
