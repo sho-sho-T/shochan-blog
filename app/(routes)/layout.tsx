@@ -1,10 +1,15 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Zen_Maru_Gothic } from "next/font/google";
 import "../globals.css";
 import { Header } from "@/components/layout/header-server";
 import { Footer } from "@/components/layout/footer";
 
-const inter = Inter({ subsets: ["latin"] });
+const zen = Zen_Maru_Gothic({
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["400"],
+  style: ["normal"],
+});
 
 export const metadata: Metadata = {
   title: "Shochan.dev",
@@ -27,7 +32,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
-      <body className={inter.className}>
+      <body className={zen.className}>
         <div className="flex min-h-screen flex-col">
           <Header />
           <main className="flex-1 flex justify-center items-start">{children}</main>
