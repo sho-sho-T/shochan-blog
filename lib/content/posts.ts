@@ -2,6 +2,7 @@ import fs from 'fs/promises';
 import path from 'path';
 import matter from 'gray-matter';
 import { Post, PostFrontMatter } from './types';
+import { ContentError, logger } from '../errors';
 
 const POSTS_DIR = path.join(process.cwd(), 'content/posts');
 
@@ -55,7 +56,7 @@ export async function getPostBySlug(slug: string, baseDir: string = POSTS_DIR): 
 
   if (!fileContent || !filePath) {
     // Include baseDir in error message for clarity
-    throw new Error(`Post not found for slug: ${slug} in directory: ${baseDir}`);
+    throw new ContentError(`Post not found for slug: ${slug} in directory: ${baseDir}`, baseDir);
   }
 
   const { data, content } = matter(fileContent);
@@ -79,7 +80,7 @@ export async function getAllPosts(): Promise<Post[]> {
         // Call getPostBySlug without baseDir, so it uses the default POSTS_DIR
         return await getPostBySlug(slug);
       } catch (error) {
-        console.error(`Error processing file ${filePath}:`, error);
+        logger.error(`Error processing file ${filePath}`, error, { slug, filePath });
         return null; // エラーが発生したファイルはスキップ
       }
     })

@@ -1,3 +1,5 @@
+import { logger } from '../errors';
+
 // ローカルストレージ用のキー定数
 export const STORAGE_KEYS = {
   FLASHCARD_PROGRESS: 'flashcard-progress',
@@ -32,7 +34,7 @@ export function saveFlashcardProgress(category: string, progress: FlashcardProgr
     // 保存
     localStorage.setItem(STORAGE_KEYS.FLASHCARD_PROGRESS, JSON.stringify(progressMap));
   } catch (error) {
-    console.error('フラッシュカードの進捗情報の保存に失敗しました', error);
+    logger.error('フラッシュカードの進捗情報の保存に失敗しました', error, { category });
   }
 }
 
@@ -49,7 +51,7 @@ export function getFlashcardProgress(category: string): FlashcardProgress | null
     const progressMap: FlashcardProgressMap = JSON.parse(storedData);
     return progressMap[category] || null;
   } catch (error) {
-    console.error('フラッシュカードの進捗情報の取得に失敗しました', error);
+    logger.error('フラッシュカードの進捗情報の取得に失敗しました', error, { category });
     return null;
   }
 }
@@ -64,7 +66,7 @@ export function getAllFlashcardProgress(): FlashcardProgressMap {
     const storedData = localStorage.getItem(STORAGE_KEYS.FLASHCARD_PROGRESS);
     return storedData ? JSON.parse(storedData) : {};
   } catch (error) {
-    console.error('フラッシュカードの進捗情報の取得に失敗しました', error);
+    logger.error('フラッシュカードの進捗情報の取得に失敗しました', error);
     return {};
   }
 }
@@ -84,6 +86,6 @@ export function resetFlashcardProgress(category: string): void {
     
     localStorage.setItem(STORAGE_KEYS.FLASHCARD_PROGRESS, JSON.stringify(progressMap));
   } catch (error) {
-    console.error('フラッシュカードの進捗情報のリセットに失敗しました', error);
+    logger.error('フラッシュカードの進捗情報のリセットに失敗しました', error, { category });
   }
 } 
