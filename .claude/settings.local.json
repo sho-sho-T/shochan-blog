@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find:*)",
+      "Bash(npm test)",
+      "Bash(echo:*)",
+      "Bash(rg -n \"import.*\\{.*\\}\" /workspaces/myblog/features /workspaces/myblog/components /workspaces/myblog/app --type ts --type tsx)",
+      "Bash(npm run lint:*)"
+    ],
+    "deny": []
+  }
+}
