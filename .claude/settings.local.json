@@ -5,7 +5,12 @@
       "Bash(npm test)",
       "Bash(echo:*)",
       "Bash(rg -n \"import.*\\{.*\\}\" /workspaces/myblog/features /workspaces/myblog/components /workspaces/myblog/app --type ts --type tsx)",
-      "Bash(npm run lint:*)"
+      "Bash(npm run lint:*)",
+      "Bash(npm test:*)",
+      "Bash(git init:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git config:*)"
     ],
     "deny": []
   }
