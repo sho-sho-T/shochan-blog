@@ -69,6 +69,24 @@ export async function getPostBySlug(slug: string, baseDir: string = POSTS_DIR): 
   };
 }
 
+export function generateExcerpt(content: string, maxLength: number = 160): string {
+  // Markdownの記号を除去
+  const plainText = content
+    .replace(/#+\s/g, '') // ヘッダー記号除去
+    .replace(/\*\*(.+?)\*\*/g, '$1') // 太字記号除去
+    .replace(/\*(.+?)\*/g, '$1') // イタリック記号除去
+    .replace(/`(.+?)`/g, '$1') // インラインコード記号除去
+    .replace(/\[(.+?)\]\(.+?\)/g, '$1') // リンク記号除去
+    .replace(/\n+/g, ' ') // 改行を空白に
+    .trim()
+
+  if (plainText.length <= maxLength) {
+    return plainText
+  }
+
+  return plainText.substring(0, maxLength).replace(/\s+\S*$/, '') + '...'
+}
+
 // 全ての公開記事データを取得 (公開日降順)
 export async function getAllPosts(): Promise<Post[]> {
   const filePaths = await getMarkdownFiles(POSTS_DIR); // Still search in actual posts dir
