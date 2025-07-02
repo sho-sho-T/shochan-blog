@@ -3,7 +3,10 @@ import { notFound } from 'next/navigation';
 
 import { MarkdownRenderer } from '@/components/mdx/MarkdownRenderer';
 import { CategoryIcon } from '@/components/post/CategoryIcon';
-import { getAllPosts, getPostBySlug } from '@/lib/content/posts';
+import { Breadcrumb } from '@/components/post/Breadcrumb';
+import { RelatedPosts } from '@/components/post/RelatedPosts';
+import { JsonLd } from '@/components/seo/JsonLd';
+import { getAllPosts, getPostBySlug, generateExcerpt } from '@/lib/content/posts';
 import { format, parseISO } from 'date-fns';
 
 /**
@@ -26,36 +29,45 @@ export async function generateMetadata({
 }: {
   params: Promise<{ slug: string }> 
 }): Promise<Metadata> {
-  const { slug } = await params; // await してから slug を取得
+  const { slug } = await params;
   const post = await getPostBySlug(slug);
 
   if (!post) {
     return {};
   }
 
+  const description = post.excerpt || generateExcerpt(post.content);
+  const ogImage = post.coverImage || '/images/default-og.png';
+
   return {
-    title: post.title,
-    // description: post.excerpt, // 必要に応じて抜粋を追加
+    title: `${post.title} | Shochan.dev`,
+    description,
+    keywords: post.tags?.join(', '),
     openGraph: {
       title: post.title,
-      // description: post.excerpt,
+      description,
       type: 'article',
       publishedTime: post.publishedAt,
+      modifiedTime: post.updatedAt || post.publishedAt,
       url: `/blog/${slug}`,
-      // images: [ // 必要に応じてOGP画像を追加
-      //   {
-      //     url: `/images/posts/${slug}/ogp.png`, // 例
-      //     width: 1200,
-      //     height: 630,
-      //     alt: post.title,
-      //   },
-      // ],
+      images: [
+        {
+          url: ogImage,
+          width: 1200,
+          height: 630,
+          alt: post.title,
+        },
+      ],
+      authors: ['Shochan'],
     },
     twitter: {
       card: 'summary_large_image',
       title: post.title,
-      // description: post.excerpt,
-      // images: [`/images/posts/${slug}/ogp.png`], // 例
+      description,
+      images: [ogImage],
+    },
+    alternates: {
+      canonical: `https://shochan-blog.vercel.app/blog/${slug}`,
     },
   };
 }
@@ -75,10 +87,43 @@ const PostDetailPage = async ({
     notFound(); // 下書き記事や存在しない記事は404
   }
 
-  const { title, publishedAt, category, tags, content } = post;
+  const allPosts = await getAllPosts();
+
+  const { title, publishedAt, category, tags, content, updatedAt, excerpt } = post;
+
+  const breadcrumbItems = [
+    { label: 'ホーム', href: '/' },
+    { label: 'ブログ', href: '/blog' },
+    { label: title }
+  ];
+
+  const articleJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: title,
+    author: {
+      '@type': 'Person',
+      name: 'Shochan',
+      url: 'https://shochan-blog.vercel.app/profile',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'Shochan.dev',
+      url: 'https://shochan-blog.vercel.app',
+    },
+    datePublished: publishedAt,
+    dateModified: updatedAt || publishedAt,
+    description: excerpt || `${title}についての記事`,
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `https://shochan-blog.vercel.app/blog/${slug}`,
+    },
+  };
 
   return (
     <div className="container mx-auto px-4">
+      <JsonLd data={articleJsonLd} />
+      <Breadcrumb items={breadcrumbItems} />
       <article className="prose prose-zinc mx-auto max-w-3xl dark:prose-invert lg:prose-lg mb-10 overflow-hidden">
         {/* 記事ヘッダー */}
         <header className="mb-8 border-b pb-4">
@@ -115,6 +160,8 @@ const PostDetailPage = async ({
           <MarkdownRenderer content={content} />
         </div>
       </article>
+      
+      <RelatedPosts currentPost={post} posts={allPosts} />
     </div>
   );
 };
