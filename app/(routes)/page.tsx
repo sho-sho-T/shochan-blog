@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { getAllPosts } from "@/lib/content/posts";
 import { PostCard } from "@/features/post/_components/PostCard";
 
@@ -9,8 +10,29 @@ export default async function HomePage() {
   const latestPosts = await getAllPosts();
   const recentPosts = latestPosts.slice(0, 3);
 
+  const websiteJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'Shochan.dev',
+    url: 'https://shochan-blog.vercel.app',
+    description: 'Webアプリケーション開発、AI, AI駆動開発、など気まぐれで記事を書いています。',
+    author: {
+      '@type': 'Person',
+      name: 'Shochan',
+    },
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: {
+        '@type': 'EntryPoint',
+        urlTemplate: 'https://shochan-blog.vercel.app/blog?search={search_term_string}',
+      },
+      'query-input': 'required name=search_term_string',
+    },
+  };
+
   return (
     <div className="container px-4 md:px-6 py-12 mx-auto overflow-hidden">
+      <JsonLd data={websiteJsonLd} />
       <section className="py-12 md:py-24 lg:py-32 flex flex-col items-center text-center">
         <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl mb-6 break-words">
           Shochan.dev
