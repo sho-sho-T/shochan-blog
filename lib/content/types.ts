@@ -4,9 +4,9 @@ export interface PostFrontMatter {
   status: 'published' | 'draft';
   category?: string;
   tags?: string[];
-  // Add other potential front matter fields as needed
-  // description?: string;
-  // coverImage?: string;
+  excerpt?: string;
+  coverImage?: string;
+  updatedAt?: string;
 }
 
 /**
@@ -20,6 +20,9 @@ export interface Post {
   status: 'published' | 'draft';
   category?: string;
   tags?: string[];
+  excerpt?: string;
+  coverImage?: string;
+  updatedAt?: string;
 }
 
 // フラッシュカード関連の型定義
