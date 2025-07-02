@@ -3,6 +3,7 @@ import { Zen_Maru_Gothic } from "next/font/google";
 import "../globals.css";
 import { Header } from "@/components/layout/header-server";
 import { Footer } from "@/components/layout/footer";
+import { PageTransition } from "@/components/ui/page-transition";
 
 const zen = Zen_Maru_Gothic({
   subsets: ["latin"],
@@ -35,7 +36,9 @@ export default function RootLayout({
       <body className={zen.className}>
         <div className="flex min-h-screen flex-col">
           <Header />
-          <main className="flex-1 flex justify-center items-start">{children}</main>
+          <main className="flex-1 flex justify-center items-start">
+            <PageTransition>{children}</PageTransition>
+          </main>
           <Footer />
         </div>
       </body>
